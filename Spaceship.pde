@@ -15,23 +15,23 @@ class Spaceship extends Floater
     	xCorners = new int[15];
     	yCorners = new int[15];
     	xCorners[0] = 0;
-    	yCorners[0] = 20;
+    	yCorners[0] = 15;
     	xCorners[1] = 6;
     	yCorners[1] = 6;
-    	xCorners[2] = 25;
+    	xCorners[2] = 30;
     	yCorners[2] = 8;
-    	xCorners[3] = 35;
+    	xCorners[3] = 40;
     	yCorners[3] = 0;
-    	xCorners[4] = 25;
+    	xCorners[4] = 30;
     	yCorners[4] = -8;
     	xCorners[5] = 6;
     	yCorners[5] = -6;
     	xCorners[6] = 0;
-    	yCorners[6] = -20;
+    	yCorners[6] = -15;
     	xCorners[7] = -22;
-    	yCorners[7] = -30;
+    	yCorners[7] = -20;
     	xCorners[8] = -10;
-    	yCorners[8] = -18;
+    	yCorners[8] = -10;
     	xCorners[9] = -5;
     	yCorners[9] = -5;
     	xCorners[10] = -10;
@@ -41,11 +41,11 @@ class Spaceship extends Floater
     	xCorners[12] = -5;
     	yCorners[12] = 5;
     	xCorners[13] = -10;
-    	yCorners[13] = 18;
+    	yCorners[13] = 10;
     	xCorners[14] = -22;
-    	yCorners[14] = 30;
+    	yCorners[14] = 20;
     }
-    public void show ()  //Draws the floater at the current position  
+	public void show (boolean rockets)  //Draws the floater at the current position  
 	  {             
 	    fill(myColor);   
 	    stroke(255);    
@@ -67,18 +67,38 @@ class Spaceship extends Floater
 	    }
 	    endShape(CLOSE);
 
-/*	    if()
-	    {
+	    if(rockets){
+	    	noStroke();
+	    	fill(#FC0D00);
 	    	beginShape();
-	    	vertex(-10,2);
-	    	vertex(-15,4);
-	    	vertex(-18,0);
-	    	vertex(-15,-4);
-	    	vertex(-10,-2);
+	    		vertex(-11,3);
+	    		vertex(-24,8);
+	    		vertex(-28,0);
+	    		vertex(-24,-8);
+	    		vertex(-11,-3);
+	    	endShape(CLOSE);
+	    	fill(#FABD14);
+	   		beginShape();
+	   			vertex(-11,2);
+	   			vertex(-20,6);
+	   			vertex(-22,0);
+	   			vertex(-20,-6);
+	   			vertex(-11,-2);
+	   		endShape(CLOSE);
+	    	fill(#FFF639);
+	   		beginShape();
+	    		vertex(-11,1);
+	    		vertex(-15,3);
+	    		vertex(-18,0);
+	    		vertex(-15,-3);
+	    		vertex(-11,-1);
+	   		endShape(CLOSE);
+
 	    }
-*/
+
 	    //"unrotate" and "untranslate" in reverse order
 	    rotate(-1*dRadians);
 	    translate(-1*(float)myCenterX, -1*(float)myCenterY);
 	  }   
+
 }

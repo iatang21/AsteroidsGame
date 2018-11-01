@@ -1,5 +1,6 @@
 Spaceship bob;
 Star[] starry;
+boolean rockets = false;
 public void setup() 
 {
 	smooth();
@@ -18,7 +19,7 @@ public void draw()
 	rect(0,0,900,900);
 	for(int i = 0; i<starry.length; i++)
   		starry[i].show();
-  	bob.show();
+  	bob.show(rockets);
   	bob.move();
   	
   }
@@ -33,11 +34,15 @@ public void keyPressed(){
   		bob.setDirectionY(0);
   	}
   	if(key=='w')
+  	{
+  		rockets = true;
   		bob.accelerate(0.5);
-  	if(key=='s')
-  		bob.accelerate(-0.5);
+  	}
   	if(key=='a')
   		bob.turn(-10);
   	if(key=='d')
   		bob.turn(10);
+}
+public void keyReleased(){
+	if(key=='w'){rockets = false;}
 }
