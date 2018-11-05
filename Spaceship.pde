@@ -11,44 +11,99 @@ class Spaceship extends Floater
 	public void setPointDirection(int degrees){myPointDirection = degrees;}
 	public double getPointDirection(){return (int)myPointDirection;}
     public Spaceship(){
-    	corners = 15;
-    	xCorners = new int[15];
-    	yCorners = new int[15];
-    	xCorners[0] = 0;
-    	yCorners[0] = 15;
-    	xCorners[1] = 6;
-    	yCorners[1] = 6;
-    	xCorners[2] = 30;
-    	yCorners[2] = 8;
-    	xCorners[3] = 40;
-    	yCorners[3] = 0;
-    	xCorners[4] = 30;
-    	yCorners[4] = -8;
-    	xCorners[5] = 6;
-    	yCorners[5] = -6;
-    	xCorners[6] = 0;
-    	yCorners[6] = -15;
-    	xCorners[7] = -22;
-    	yCorners[7] = -20;
-    	xCorners[8] = -10;
-    	yCorners[8] = -10;
-    	xCorners[9] = -5;
-    	yCorners[9] = -5;
-    	xCorners[10] = -10;
-    	yCorners[10] = -2;
-    	xCorners[11] = -10;
-    	yCorners[11] = 2;
-    	xCorners[12] = -5;
-    	yCorners[12] = 5;
-    	xCorners[13] = -10;
-    	yCorners[13] = 10;
-    	xCorners[14] = -22;
-    	yCorners[14] = 20;
+    	corners = 28;
+    	xCorners = new int[28];
+    	yCorners = new int[28];
+    	
+    	xCorners[0] = 40;
+    	yCorners[0] = 5;
+
+    	xCorners[1] = 15;
+    	yCorners[1] = 11;
+    	
+    	xCorners[2] = 5;
+    	yCorners[2] = 9;
+    	
+    	xCorners[3] = 3;
+    	yCorners[3] = 8;
+    	
+    	xCorners[4] = 6;
+    	yCorners[4] = 6;
+    	
+    	xCorners[5] = 8;
+    	yCorners[5] = 4;
+    	
+    	xCorners[6] = 8;
+    	yCorners[6] = -4;
+    	
+    	xCorners[7] = 6;
+    	yCorners[7] = -6;
+    	
+    	xCorners[8] = 3;
+    	yCorners[8] = -8;
+    	
+    	xCorners[9] = 5;
+    	yCorners[9] = -9;
+    	
+    	xCorners[10] = 15;
+    	yCorners[10] = -11;
+    	
+    	xCorners[11] = 40;
+    	yCorners[11] = -5;
+    	
+    	xCorners[12] = 12;
+    	yCorners[12] = -16;
+    	
+    	xCorners[13] = -9;
+    	yCorners[13] = -17;
+    	
+    	xCorners[14] = -16;
+    	yCorners[14] = -13;
+
+    	xCorners[15] = -23;
+    	yCorners[15] = -8;
+
+    	xCorners[16] = -9;
+    	yCorners[16] = -12;
+
+    	xCorners[17] = -2;
+    	yCorners[17] = -8;
+
+    	xCorners[18] = -6;
+    	yCorners[18] = -5;
+
+    	xCorners[19] = -8;
+    	yCorners[19] = -3;
+
+    	xCorners[20] = -8;
+    	yCorners[20] = 3;
+
+    	xCorners[21] = -6;
+    	yCorners[21] = 5;
+
+    	xCorners[22] = -2;
+    	yCorners[22] = 8;
+
+    	xCorners[23] = -9;
+    	yCorners[23] = 12;
+
+    	xCorners[24] = -23;
+    	yCorners[24] = 8;
+
+    	xCorners[25] = -16;
+    	yCorners[25] = 13;
+
+    	xCorners[26] = -9;
+    	yCorners[26] = 17;
+
+    	xCorners[27] = 12;
+    	yCorners[27] = 16;
     }
+
 	public void show (boolean rockets)  //Draws the floater at the current position  
 	  {             
-	    fill(myColor);   
-	    stroke(255);    
+	    fill(200);   
+	    stroke(100);    
 	    
 	    //translate the (x,y) center of the ship to the correct position
 	    translate((float)myCenterX, (float)myCenterY);
@@ -69,29 +124,29 @@ class Spaceship extends Floater
 
 	    if(rockets){
 	    	noStroke();
-	    	fill(#FC0D00);
+	    	fill(#0D84FF);
 	    	beginShape();
-	    		vertex(-11,3);
-	    		vertex(-24,8);
+	    		vertex(-9,3);
+	    		vertex(-24,5);
 	    		vertex(-28,0);
-	    		vertex(-24,-8);
-	    		vertex(-11,-3);
+	    		vertex(-24,-5);
+	    		vertex(-9,-3);
 	    	endShape(CLOSE);
-	    	fill(#FABD14);
+	    	fill(#0DBCFF);
 	   		beginShape();
-	   			vertex(-11,2);
-	   			vertex(-20,6);
+	   			vertex(-9,2);
+	   			vertex(-20,4);
 	   			vertex(-22,0);
-	   			vertex(-20,-6);
-	   			vertex(-11,-2);
+	   			vertex(-20,-4);
+	   			vertex(-9,-2);
 	   		endShape(CLOSE);
-	    	fill(#FFF639);
+	    	fill(#62FAF1);
 	   		beginShape();
-	    		vertex(-11,1);
+	    		vertex(-9,1);
 	    		vertex(-15,3);
 	    		vertex(-18,0);
 	    		vertex(-15,-3);
-	    		vertex(-11,-1);
+	    		vertex(-9,-1);
 	   		endShape(CLOSE);
 
 	    }
