@@ -27,17 +27,17 @@ class Spaceship extends Floater
     	xCorners[3] = 3;
     	yCorners[3] = 8;
     	
-    	xCorners[4] = 6;
-    	yCorners[4] = 6;
+    	xCorners[4] =22;
+    	yCorners[4] = 2;
     	
-    	xCorners[5] = 8;
-    	yCorners[5] = 4;
+    	xCorners[5] = 9;
+    	yCorners[5] = 1;
     	
-    	xCorners[6] = 8;
-    	yCorners[6] = -4;
+    	xCorners[6] = 9;
+    	yCorners[6] = -1;
     	
-    	xCorners[7] = 6;
-    	yCorners[7] = -6;
+    	xCorners[7] = 22;
+    	yCorners[7] = -2;
     	
     	xCorners[8] = 3;
     	yCorners[8] = -8;

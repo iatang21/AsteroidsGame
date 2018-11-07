@@ -1,5 +1,6 @@
 Spaceship bob;
 Star[] starry;
+Asteroid[] rock;
 boolean rockets = false;
 boolean wPressed = false;
 boolean sPressed = false;
@@ -9,29 +10,36 @@ boolean qPressed = false;
 public void setup() 
 {
 	smooth();
-	size(900,900);
+	size(800,800);
   	bob = new Spaceship();
   	bob.setX(450);
   	bob.setY(450);
   	starry = new Star[1000];
   	for(int i=0; i<starry.length; i++)
   		starry[i] = new Star();
+  	rock = new Asteroid[20];
+  	for(int i=0; i<rock.length; i++)
+  		rock[i] = new Asteroid();
 
 }
 public void draw() 
 {
 	fill(0);
-	rect(0,0,900,900);
-	for(int i = 0; i<starry.length; i++)
+	rect(0,0,800,800);
+	for(int i=0; i<rock.length; i++){
+		rock[i].show();
+		rock[i].move();
+	}
+	for(int i=0; i<starry.length; i++)
   		starry[i].show();
   	bob.show(rockets);
   	bob.move();
   	if(keyPressed){
 	 	if(wPressed){
-	 		bob.accelerate(0.15);
+	 		bob.accelerate(0.075);
 	 	}
 	 	if(sPressed){
-	 		bob.accelerate(-0.15);
+	 		bob.accelerate(-0.075);
 	 	}
 	 	if(aPressed){
 	 		bob.turn(-2);
@@ -48,8 +56,8 @@ public void keyPressed(){
   	if(key=='q')
   	{
   		bob.setPointDirection((int)(Math.random()*360));
-  		bob.setX((int)(Math.random()*800)+50);
-  		bob.setY((int)(Math.random()*800)+50);
+  		bob.setX((int)(Math.random()*700)+25);
+  		bob.setY((int)(Math.random()*700)+25);
   		bob.accelerate(0);
   		bob.setDirectionX(0);
   		bob.setDirectionY(0);
