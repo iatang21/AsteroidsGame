@@ -27,17 +27,17 @@ class Spaceship extends Floater
     	xCorners[3] = 3;
     	yCorners[3] = 8;
     	
-    	xCorners[4] =22;
-    	yCorners[4] = 2;
+    	xCorners[4] =20;
+    	yCorners[4] = 3;
     	
     	xCorners[5] = 9;
-    	yCorners[5] = 1;
+    	yCorners[5] = 3;
     	
     	xCorners[6] = 9;
-    	yCorners[6] = -1;
+    	yCorners[6] = -3;
     	
-    	xCorners[7] = 22;
-    	yCorners[7] = -2;
+    	xCorners[7] = 20;
+    	yCorners[7] = -3;
     	
     	xCorners[8] = 3;
     	yCorners[8] = -8;
@@ -103,7 +103,8 @@ class Spaceship extends Floater
 	public void show (boolean rockets)  //Draws the floater at the current position  
 	  {             
 	    fill(200);   
-	    stroke(100);    
+	    stroke(100);
+	    strokeWeight(1);    
 	    
 	    //translate the (x,y) center of the ship to the correct position
 	    translate((float)myCenterX, (float)myCenterY);
@@ -122,30 +123,42 @@ class Spaceship extends Floater
 	    }
 	    endShape(CLOSE);
 
+	    //cockpit
+	    //strokeWeight(1);
+	    fill(#BF77D6);
+	    beginShape();
+	    vertex(9,3);
+	    vertex(7,0);
+	    vertex(9,-3);
+	    vertex(28,-2);
+	    vertex(30,0);
+	    vertex(28,2);
+	    endShape(CLOSE);
+
 	    if(rockets){
 	    	noStroke();
 	    	fill(#0D84FF);
 	    	beginShape();
 	    		vertex(-9,3);
-	    		vertex(-24,5);
-	    		vertex(-28,0);
-	    		vertex(-24,-5);
+	    		vertex(-30,7);
+	    		vertex(-34,0);
+	    		vertex(-30,-7);
 	    		vertex(-9,-3);
 	    	endShape(CLOSE);
 	    	fill(#0DBCFF);
 	   		beginShape();
 	   			vertex(-9,2);
-	   			vertex(-20,4);
-	   			vertex(-22,0);
-	   			vertex(-20,-4);
+	   			vertex(-24,6);
+	   			vertex(-28,0);
+	   			vertex(-24,-6);
 	   			vertex(-9,-2);
 	   		endShape(CLOSE);
 	    	fill(#62FAF1);
 	   		beginShape();
 	    		vertex(-9,1);
-	    		vertex(-15,3);
-	    		vertex(-18,0);
-	    		vertex(-15,-3);
+	    		vertex(-18,5);
+	    		vertex(-22,0);
+	    		vertex(-18,-5);
 	    		vertex(-9,-1);
 	   		endShape(CLOSE);
 
