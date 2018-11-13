@@ -17,7 +17,7 @@ public void setup()
   	starry = new Star[1000];
   	for(int i=0; i<starry.length; i++)
   		starry[i] = new Star();
-  	rock = new Asteroid[20];
+  	rock = new Asteroid[15];
   	for(int i=0; i<rock.length; i++)
   		rock[i] = new Asteroid();
 
@@ -26,26 +26,26 @@ public void draw()
 {
 	fill(0);
 	rect(0,0,800,800);
-	for(int i=0; i<rock.length; i++){
+	for(int i=0; i<starry.length; i++)
+  		starry[i].show();
+  	for(int i=0; i<rock.length; i++){
 		rock[i].show();
 		rock[i].move();
 	}
-	for(int i=0; i<starry.length; i++)
-  		starry[i].show();
   	bob.show(rockets);
   	bob.move();
   	if(keyPressed){
 	 	if(wPressed){
-	 		bob.accelerate(0.075);
+	 		bob.accelerate(0.08);
 	 	}
 	 	if(sPressed){
-	 		bob.accelerate(-0.075);
+	 		bob.accelerate(-0.08);
 	 	}
 	 	if(aPressed){
-	 		bob.turn(-2);
+	 		bob.turn(-4);
 	 	}
 	 	if(dPressed){
-	 		bob.turn(2);
+	 		bob.turn(4);
 	 	}
 	 }
      

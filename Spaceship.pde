@@ -15,7 +15,7 @@ class Spaceship extends Floater
     	xCorners = new int[28];
     	yCorners = new int[28];
     	
-    	xCorners[0] = 40;
+    	xCorners[0] = 50;
     	yCorners[0] = 5;
 
     	xCorners[1] = 15;
@@ -48,11 +48,11 @@ class Spaceship extends Floater
     	xCorners[10] = 15;
     	yCorners[10] = -11;
     	
-    	xCorners[11] = 40;
+    	xCorners[11] = 50;
     	yCorners[11] = -5;
     	
     	xCorners[12] = 12;
-    	yCorners[12] = -16;
+    	yCorners[12] = -18;
     	
     	xCorners[13] = -9;
     	yCorners[13] = -17;
@@ -97,7 +97,7 @@ class Spaceship extends Floater
     	yCorners[26] = 17;
 
     	xCorners[27] = 12;
-    	yCorners[27] = 16;
+    	yCorners[27] = 18;
     }
 
 	public void show (boolean rockets)  //Draws the floater at the current position  
@@ -141,15 +141,15 @@ class Spaceship extends Floater
 	    	beginShape();
 	    		vertex(-9,3);
 	    		vertex(-30,7);
-	    		vertex(-34,0);
+	    		vertex(-55,0);
 	    		vertex(-30,-7);
 	    		vertex(-9,-3);
 	    	endShape(CLOSE);
-	    	fill(#0DBCFF);
+	    	fill(#48BAFF);
 	   		beginShape();
 	   			vertex(-9,2);
 	   			vertex(-24,6);
-	   			vertex(-28,0);
+	   			vertex(-40,0);
 	   			vertex(-24,-6);
 	   			vertex(-9,-2);
 	   		endShape(CLOSE);
@@ -157,7 +157,7 @@ class Spaceship extends Floater
 	   		beginShape();
 	    		vertex(-9,1);
 	    		vertex(-18,5);
-	    		vertex(-22,0);
+	    		vertex(-30,0);
 	    		vertex(-18,-5);
 	    		vertex(-9,-1);
 	   		endShape(CLOSE);

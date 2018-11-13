@@ -23,32 +23,32 @@ class Asteroid extends Floater{
 	  	xCorners = new int[8];
 	  	yCorners = new int[8];
 
-	  	xCorners[0] = 5;
-	  	yCorners[0] = 5;
+	  	xCorners[0] = 15;
+	  	yCorners[0] = 15;
 
-	  	xCorners[1] = 8;
-	  	yCorners[1] = 0;
+	  	xCorners[1] = 18;
+	  	yCorners[1] = 5;
 
-	  	xCorners[2] = 7;
-	  	yCorners[2] = -2;
+	  	xCorners[2] = 9;
+	  	yCorners[2] = -6;
 
 	  	xCorners[3] = 0;
-	  	yCorners[3] = -6;
+	  	yCorners[3] = -12;
 
-	  	xCorners[4] = -4;
-	  	yCorners[4] = -7;
+	  	xCorners[4] = -12;
+	  	yCorners[4] = -10;
 
-	  	xCorners[5] = -6;
-	  	yCorners[5] = -2;
+	  	xCorners[5] = -16;
+	  	yCorners[5] = -6;
 
-	  	xCorners[6] = -3;
-	  	yCorners[6] = 3;
+	  	xCorners[6] = -13;
+	  	yCorners[6] = 13;
 
 	  	xCorners[7] = 0;
-	  	yCorners[7] = 7;
+	  	yCorners[7] = 17;
 	  	}
 	 public void show(){
-	 	fill(200);   
+	 	fill(150);   
 	    stroke(100);    
 	    
 	    //translate the (x,y) center of the ship to the correct position
