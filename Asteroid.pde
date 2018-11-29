@@ -47,6 +47,7 @@ class Asteroid extends Floater{
 	  	xCorners[7] = 0;
 	  	yCorners[7] = 17;
 	  	}
+	  	
 	 public void show(){
 	 	fill(150);   
 	    stroke(100);    
