@@ -20,6 +20,8 @@ public void setup()
   	rock = new ArrayList <Asteroid>();
   	for(int i=0; i<10; i++)
   		rock.add(new Asteroid());
+  	smooth();
+  	frameRate(80);
 
 }
 public void draw() 
@@ -32,17 +34,17 @@ public void draw()
 		rock.get(i).move();
 		rock.get(i).show();
 		float d =dist(bob.getX(),bob.getY(),rock.get(i).getX(),rock.get(i).getY());
-		if (d<20)
+		if (d<30)
 			rock.remove(i);
 	}
   	bob.show(rockets);
   	bob.move();
   	if(keyPressed){
 	 	if(wPressed){
-	 		bob.accelerate(0.08);
+	 		bob.accelerate(0.1);
 	 	}
 	 	if(sPressed){
-	 		bob.accelerate(-0.08);
+	 		bob.accelerate(-0.1);
 	 	}
 	 	if(aPressed){
 	 		bob.turn(-4);
