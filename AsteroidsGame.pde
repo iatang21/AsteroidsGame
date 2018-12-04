@@ -1,17 +1,20 @@
 Spaceship bob;
 Star[] starry;
 ArrayList <Asteroid> rock;
+ArrayList <Bullet> bill = new ArrayList<Bullet>();;
 boolean rockets = false;
 boolean wPressed = false;
 boolean sPressed = false;
 boolean aPressed = false;
 boolean dPressed = false;
 boolean qPressed = false;
+//boolean firing = false;
 public void setup() 
 {
 	smooth();
 	size(800,800);
   	bob = new Spaceship();
+  	
   	bob.setX(450);
   	bob.setY(450);
   	starry = new Star[1000];
@@ -33,9 +36,14 @@ public void draw()
   	for(int i=0; i< rock.size(); i++){
 		rock.get(i).move();
 		rock.get(i).show();
-		float d =dist(bob.getX(),bob.getY(),rock.get(i).getX(),rock.get(i).getY());
-		if (d<30)
+		float dShip = dist(bob.getX(),bob.getY(),rock.get(i).getX(),rock.get(i).getY());
+		if (dShip<30)
 			rock.remove(i);
+		for(int a=0; a<bill.size();a++){
+		float dBullet = dist(bill.get(a).getX(),bill.get(a).getY(),rock.get(i).getX(),rock.get(i).getY());
+		if(dBullet<20)
+			rock.remove(i);
+		}
 	}
   	bob.show(rockets);
   	bob.move();
@@ -53,10 +61,16 @@ public void draw()
 	 		bob.turn(4);
 	 	}
 	 }
-     
-
-  	
+	 /*if(mousePressed){
+	 	if(firing)
+	 		bill.add(new Bullet(bob));
+	 }*/
+	 for(Bullet bullets : bill){
+	 	bullets.show();
+	 	bullets.move();
+	 }
   }
+
 public void keyPressed(){
   	if(key=='q')
   	{
@@ -79,6 +93,14 @@ public void keyPressed(){
   	if(key=='d')
   		dPressed = true;
 }
+public void mousePressed(){
+	bill.add(new Bullet(bob));
+	//firing = true;
+}
+/*public void mouseReleased(){
+	firing = false;
+}*/
+
 public void keyReleased(){
 	if(key=='w'){
 		rockets = false;
@@ -90,4 +112,5 @@ public void keyReleased(){
 		aPressed = false;
 	if(key=='d')
 		dPressed = false;
+
 }

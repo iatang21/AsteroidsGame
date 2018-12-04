@@ -99,7 +99,7 @@ class Spaceship extends Floater
     	xCorners[27] = 12;
     	yCorners[27] = 18;
     }
-
+    //public void rotate(){myPointDirection=(Math.atan2(mouseY-myCenterY,mouseX-myCenterX))/PI*180;}
 	public void show (boolean rockets)  //Draws the floater at the current position  
 	  {             
 	    fill(200);   
@@ -163,7 +163,7 @@ class Spaceship extends Floater
 	   		endShape(CLOSE);
 
 	    }
-
+	    
 	    //"unrotate" and "untranslate" in reverse order
 	    rotate(-1*dRadians);
 	    translate(-1*(float)myCenterX, -1*(float)myCenterY);
