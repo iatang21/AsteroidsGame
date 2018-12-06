@@ -8,7 +8,7 @@ boolean sPressed = false;
 boolean aPressed = false;
 boolean dPressed = false;
 boolean qPressed = false;
-//boolean firing = false;
+boolean firing = false;
 public void setup() 
 {
 	smooth();
@@ -21,7 +21,7 @@ public void setup()
   	for(int i=0; i<starry.length; i++)
   		starry[i] = new Star();
   	rock = new ArrayList <Asteroid>();
-  	for(int i=0; i<10; i++)
+  	for(int i=0; i<20; i++)
   		rock.add(new Asteroid());
   	smooth();
   	frameRate(80);
@@ -37,11 +37,13 @@ public void draw()
 		rock.get(i).move();
 		rock.get(i).show();
 		float dShip = dist(bob.getX(),bob.getY(),rock.get(i).getX(),rock.get(i).getY());
-		if (dShip<30)
+		if (dShip<30){
 			rock.remove(i);
+			break;
+		}
 		for(int a=0;a<bill.size();a++){
 			float dBullet = dist(bill.get(a).getX(),bill.get(a).getY(),rock.get(i).getX(),rock.get(i).getY());
-			if(dBullet<20){
+			if(dBullet<30){
 				rock.remove(i);
 				bill.remove(a);
 				break;
@@ -64,10 +66,10 @@ public void draw()
 	 		bob.turn(3);
 	 	}
 	 }
-	 /*if(mousePressed){
+	 if(mousePressed){
 	 	if(firing)
 	 		bill.add(new Bullet(bob));
-	 }*/
+	 }
 	 for(int i=0;i<bill.size();i++){
 	 	bill.get(i).show();
 	 	bill.get(i).move();
@@ -97,13 +99,12 @@ public void keyPressed(){
   		dPressed = true;
 }
 public void mousePressed(){
-	bill.add(new Bullet(bob));
-	//firing = true;
+	firing = true;
 }
 
-/*public void mouseReleased(){
+public void mouseReleased(){
 	firing = false;
-}*/
+}
 
 public void keyReleased(){
 	if(key=='w'){
