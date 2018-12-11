@@ -1,5 +1,6 @@
 Spaceship bob;
 Star[] starry;
+Planet[] pizza;
 ArrayList <Asteroid> rock;
 ArrayList <Bullet> bill = new ArrayList<Bullet>();
 boolean rockets = false;
@@ -14,25 +15,29 @@ public void setup()
 	smooth();
 	size(800,800);
   	bob = new Spaceship();
-  	
   	bob.setX(450);
   	bob.setY(450);
   	starry = new Star[1000];
+  	pizza = new Planet[20];
   	for(int i=0; i<starry.length; i++)
   		starry[i] = new Star();
+  	for(int i=0; i<pizza.length; i++)
+  		pizza[i] = new Planet();
   	rock = new ArrayList <Asteroid>();
-  	for(int i=0; i<20; i++)
+  	for(int i=0; i<40; i++)
   		rock.add(new Asteroid());
   	smooth();
-  	frameRate(80);
+  	frameRate(100);
 
 }
 public void draw() 
 {
-	fill(0);
+	fill(0,0,0,30);
 	rect(0,0,800,800);
 	for(int i=0; i<starry.length; i++)
   		starry[i].show();
+  	for(int i=0; i<pizza.length; i++)
+  		pizza[i].show();
   	for(int i=0; i< rock.size(); i++){
 		rock.get(i).move();
 		rock.get(i).show();
@@ -54,10 +59,10 @@ public void draw()
   	bob.move();
   	if(keyPressed){
 	 	if(wPressed){
-	 		bob.accelerate(0.1);
+	 		bob.accelerate(0.075);
 	 	}
 	 	if(sPressed){
-	 		bob.accelerate(-0.1);
+	 		bob.accelerate(-0.075);
 	 	}
 	 	if(aPressed){
 	 		bob.turn(-3);
@@ -97,6 +102,11 @@ public void keyPressed(){
   		aPressed = true;
   	if(key=='d')
   		dPressed = true;
+  	if(key=='r'){
+  		rock = new ArrayList <Asteroid>();
+  			for(int i=0; i<40; i++)
+  				rock.add(new Asteroid());
+  	}
 }
 public void mousePressed(){
 	firing = true;

@@ -39,8 +39,8 @@ class Bullet extends Floater{
 	    //rotate so that the polygon will be drawn in the correct direction
 	    rotate(dRadians);
 
-        ellipse(50,5,30,2);
-		ellipse(50,-5,30,2);
+        ellipse(60,5,30,2);
+		ellipse(60,-5,30,2);
 
 	    //"unrotate" and "untranslate" in reverse order
 	    rotate(-1*dRadians);
