@@ -1,6 +1,5 @@
 Spaceship bob;
 Star[] starry;
-Planet[] pizza;
 ArrayList <Asteroid> rock;
 ArrayList <Bullet> bill = new ArrayList<Bullet>();
 boolean rockets = false;
@@ -17,12 +16,9 @@ public void setup()
   	bob = new Spaceship();
   	bob.setX(450);
   	bob.setY(450);
-  	starry = new Star[1000];
-  	pizza = new Planet[20];
+  	starry = new Star[800];
   	for(int i=0; i<starry.length; i++)
   		starry[i] = new Star();
-  	for(int i=0; i<pizza.length; i++)
-  		pizza[i] = new Planet();
   	rock = new ArrayList <Asteroid>();
   	for(int i=0; i<40; i++)
   		rock.add(new Asteroid());
@@ -36,42 +32,26 @@ public void draw()
 	rect(0,0,800,800);
 	for(int i=0; i<starry.length; i++)
   		starry[i].show();
-  	for(int i=0; i<pizza.length; i++)
-  		pizza[i].show();
-  	for(int i=0; i< rock.size(); i++){
-		rock.get(i).move();
-		rock.get(i).show();
-		float dShip = dist(bob.getX(),bob.getY(),rock.get(i).getX(),rock.get(i).getY());
-		if (dShip<30){
-			rock.remove(i);
-			break;
-		}
-		for(int a=0;a<bill.size();a++){
-			float dBullet = dist(bill.get(a).getX(),bill.get(a).getY(),rock.get(i).getX(),rock.get(i).getY());
-			if(dBullet<30){
-				rock.remove(i);
-				bill.remove(a);
-				break;
-			}
-		}
-	}
+
   	bob.show(rockets);
   	bob.move();
+  	bob.turn();
   	if(keyPressed){
 	 	if(wPressed){
 	 		bob.accelerate(0.075);
 	 	}
 	 	if(sPressed){
 	 		bob.accelerate(-0.075);
-	 	}
+	 	}/*
 	 	if(aPressed){
 	 		bob.turn(-3);
 	 	}
 	 	if(dPressed){
 	 		bob.turn(3);
-	 	}
+	 	}*/
 	 }
-	 if(mousePressed){
+
+	 if(mousePressed&&frameCount%10==0){
 	 	if(firing)
 	 		bill.add(new Bullet(bob));
 	 }
@@ -79,6 +59,36 @@ public void draw()
 	 	bill.get(i).show();
 	 	bill.get(i).move();
 	 }
+
+  	for(int i=0; i< rock.size(); i++){
+		rock.get(i).move();
+		rock.get(i).show();
+		float dShip = dist(bob.getX(),bob.getY(),rock.get(i).getX(),rock.get(i).getY());
+		if (dShip<30){
+			rock.remove(i);
+			fill(#AD1728);
+			rect(0,0,800,800);
+			break;
+		}
+		for(int a=0;a<bill.size();a++){
+			float dBullet = dist(bill.get(a).getX(),bill.get(a).getY(),rock.get(i).getX(),rock.get(i).getY());
+			if(dBullet<30){
+				noStroke();
+				fill(#F53B16);
+				ellipse(rock.get(i).getX(),rock.get(i).getY(),75,75);
+				fill(#FAA244);
+				ellipse(rock.get(i).getX(),rock.get(i).getY(),60,60);
+				fill(#FAE89F);
+				ellipse(rock.get(i).getX(),rock.get(i).getY(),45,45);
+				fill(255);
+				ellipse(rock.get(i).getX(),rock.get(i).getY(),24,24);
+				rock.remove(i);
+				bill.remove(a);
+				break;
+			}
+		}
+	}
+  	
   }
 
 public void keyPressed(){

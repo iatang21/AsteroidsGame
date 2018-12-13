@@ -168,5 +168,7 @@ class Spaceship extends Floater
 	    rotate(-1*dRadians);
 	    translate(-1*(float)myCenterX, -1*(float)myCenterY);
 	  }   
-
+	public void turn(){
+		myPointDirection = (Math.atan2(mouseY-myCenterY,mouseX-myCenterX))/PI*180;
+	}
 }
