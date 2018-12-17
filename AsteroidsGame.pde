@@ -37,6 +37,14 @@ public void draw()
   		textSize(40);
   		text("YOU LOSE!\nPress R to restart!",400,400);
   	}
+  	else if(rock.size()==0){
+  		fill(0);
+  		rect(0,0,800,800);
+  		fill(255);
+  		textAlign(CENTER);
+  		textSize(40);
+  		text("YOU WIN!\nPress R to restart!",400,400);
+  	}
   	else{
 		fill(0,0,0,30);
 		rect(0,0,800,800);
